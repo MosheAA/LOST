@@ -1,6 +1,6 @@
 #
 from LOST.mcmcARpFuncs import loadL2, runNotes, loadKnown, loadKnownU
-from filter import bpFilt, lpFilt, gauKer
+from LOST.filter import bpFilt, lpFilt, gauKer
 import LOST.mcmcAR as mAR
 import LOST.ARlib as _arl
 import pyPG as lw
