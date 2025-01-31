@@ -535,10 +535,15 @@ class mcmcARp(mcmcARspk.mcmcARspk):
                     for m in range(ooTR):
                         #oo.wts[m, it, :, :]   = wt[m, :, :, 0]
                         #oo.uts[m, it, :, :]   = ut[m, :, :, 0]
+                        #if not oo.bFixF:
+                        #    oo.amps[it, :]  = amp
+                        #    oo.fs[it, :]    = f
                         if not oo.bFixF:
-                            oo.amps[it, :]  = amp
-                            oo.fs[it, :]    = f
-
+                          if amp.size != 0:
+                              oo.amps[it, :]  = amp
+                              oo.fs[it, :]    = f
+                          else:
+                            print(f"Warning: amp is empty at iteration {it}. Skipping assignment.") 
                     ttt9 = _tm.time()
                     oo.F0          = (-1*_Npp.polyfromroots(oo.F_alfa_rep)[::-1].real)[1:]
                     for tr in range(oo.TR):
