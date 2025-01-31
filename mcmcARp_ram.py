@@ -30,7 +30,7 @@ else:
 #
 #from ARcfSmpl2 import ARcfSmpl
 
-import commdefs as _cd
+import LOST.commdefs as _cd
 
 from LOST.ARcfSmplFuncs import ampAngRep, buildLims, FfromLims, dcmpcff, initF
 import os
