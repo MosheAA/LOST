@@ -218,7 +218,7 @@ class mcmcARspk_ap(mAR.mcmcAR_ap):
 
         #oo.Bsmpx        = _N.zeros((iters//oo.BsmpxSkp, oo.TR, (oo.N+1) + 2))
         oo.smpx        = _N.zeros((oo.TR, (oo.N + 1) + 2, oo.k))   #  start at 0 + u
-        oo.ws          = _N.empty((oo.TR, oo.N+1), dtype=_N.float)
+        oo.ws          = _N.empty((oo.TR, oo.N+1), dtype=float)
         oo.lrn   = _N.empty((oo.TR, oo.N+1))
 
         if oo.us is None:
@@ -323,7 +323,7 @@ class mcmcARspk_ap(mAR.mcmcAR_ap):
         oo.smp_q2       = _N.zeros((iters, oo.TR))
         #  store samples of
 
-        oo.allalfas     = _N.zeros((iters, oo.k), dtype=_N.complex)
+        oo.allalfas     = _N.zeros((iters, oo.k), dtype=complex)
         if oo.pkldalfas is not None:
             oo.allalfas[0]  = oo.pkldalfas
             for r in range(oo.R):
@@ -387,7 +387,7 @@ class mcmcARspk_ap(mAR.mcmcAR_ap):
         oo.AR2lims      = 2*_N.cos(radians)
 
         oo.smpx        = _N.zeros((oo.TR, (oo.N + 1) + 2, oo.k))   #  start at 0 + u
-        oo.ws          = _N.empty((oo.TR, oo.N+1), dtype=_N.float)
+        oo.ws          = _N.empty((oo.TR, oo.N+1), dtype=float)
 
         #############   ADDED THIS FOR DEBUG
         #oo.F_alfa_rep = _N.array([-0.4       +0.j,          0.96999828+0.00182841j,  0.96999828-0.00182841j, 0.51000064+0.02405102j,  0.51000064-0.02405102j,  0.64524011+0.04059507j, 0.64524011-0.04059507j]).tolist()
@@ -620,8 +620,8 @@ class mcmcARspk_ap(mAR.mcmcAR_ap):
         pcklme["C"]    = oo.C
         pcklme["k"]    = oo.k
         pcklme["BsmpxSkp"]    = oo.BsmpxSkp
-        pcklme["rts"]    = _N.array(oo.rts, dtype=_N.float16)  #  resolution about 1e-6.  So as long as signal amplitude about 0.1, this is not a problem
-        pcklme["zts"]    = _N.array(oo.zts, dtype=_N.float16)
+        pcklme["rts"]    = _N.array(oo.rts, dtype=float)  #  resolution about 1e-6.  So as long as signal amplitude about 0.1, this is not a problem
+        pcklme["zts"]    = _N.array(oo.zts, dtype=float)
         pcklme["toiter"]      = toiter
         pcklme["q2"]   = oo.smp_q2[0:toiter:oo.BsmpxSkp]
         pcklme["amps"] = oo.amps[0:toiter:oo.BsmpxSkp]
@@ -638,7 +638,7 @@ class mcmcARspk_ap(mAR.mcmcAR_ap):
             pcklme["Hbf"]    = oo.Hbf
             pcklme["h_coeffs"]    = oo.smp_hS[0:toiter:oo.BsmpxSkp]
         if oo.doBsmpx:
-            pcklme["Bsmpx"]    = _N.array(oo.Bsmpx[0:toiter//oo.BsmpxSkp], dtype=_N.float16)
+            pcklme["Bsmpx"]    = _N.array(oo.Bsmpx[0:toiter//oo.BsmpxSkp], dtype=float)
 
         #cifs = _N.empty((oo.TR, oo.N
         #for it 
