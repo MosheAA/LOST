@@ -1,5 +1,5 @@
 import numpy as _N
-import commdefs as _cd
+import LOST.commdefs as _cd
 #from ARcfSmpl import ARcfSmpl
 
 from filter import gauKer, lpFilt, bpFilt
