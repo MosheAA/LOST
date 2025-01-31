@@ -542,14 +542,14 @@ class mcmcARp(mcmcARspk.mcmcARspk):
                             prt, rank, f, amp = ampAngRep(oo.F_alfa_rep, oo.dt, f_order=True)
                             if amp.size == 0:
                                 print(f"Warning: amp is empty at iteration {it}. Filling with NaN.")
-                                oo.amps[it, :] = np.nan  # Use NaN to flag missing data
-                                oo.fs[it, :] = np.nan
+                                oo.amps[it, :] = _N.nan  # Use NaN to flag missing data
+                                oo.fs[it, :] = _N.nan
                             else:
                                 expected_shape = oo.amps.shape[1]  # Get the expected shape
                                 if amp.shape[0] != expected_shape:  
                                     print(f"Warning: amp shape mismatch at iteration {it}. Reshaping.")
-                                    amp = np.resize(amp, (expected_shape,))  # Resize safely
-                                    f = np.resize(f, (expected_shape,))
+                                    amp = _N.resize(amp, (expected_shape,))  # Resize safely
+                                    f = _N.resize(f, (expected_shape,))
                                 oo.amps[it, :] = amp
                                 oo.fs[it, :] = f
                     ttt9 = _tm.time()
