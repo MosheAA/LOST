@@ -27,7 +27,7 @@ def concat_smps(exptDir, runDir, xticks=None, ylimAmp=None):
             totalIter += lm["allalfas"].shape[0]
             its.append(lm["allalfas"].shape[0])
 
-    allalfas = _N.empty((totalIter, lm["allalfas"].shape[1]), dtype=_N.complex)
+    allalfas = _N.empty((totalIter, lm["allalfas"].shape[1]), dtype=complex)
     q2       = _N.empty((lm["q2"].shape[0], totalIter))
     h_coeffs = _N.empty((lm["h_coeffs"].shape[0], totalIter))
     Hbf      = lm["Hbf"]
