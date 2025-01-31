@@ -132,9 +132,9 @@ AR2lims      = 2*_N.cos(radians)
 F_alfa_rep  = initF(R, Cs, Cn).tolist()   #  init F_alfa_rep
 
 if ram:
-    alpR        = _N.array(F_alfa_rep[0:R], dtype=_N.complex)
-    alpC        = _N.array(F_alfa_rep[R:], dtype=_N.complex)
-    alpC_tmp    = _N.array(F_alfa_rep[R:], dtype=_N.complex)
+    alpR        = _N.array(F_alfa_rep[0:R], dtype=complex)
+    alpC        = _N.array(F_alfa_rep[R:], dtype=complex)
+    alpC_tmp    = _N.array(F_alfa_rep[R:], dtype=complex)
 else:
     alpR        = F_alfa_rep[0:R]
     alpC        = F_alfa_rep[R:]
@@ -175,7 +175,7 @@ if ram:
     _N.copyto(smpx_contiguous2, 
               smpx[:, 0:, 0:k-1])
 
-allalfas     = _N.empty((ITER, k), dtype=_N.complex)
+allalfas     = _N.empty((ITER, k), dtype=complex)
 for it in range(ITER):
     if ram:
         uts[it], wts[it] = _arcfs.ARcfSmpl(N, k, 1, AR2lims, smpx_contiguous1, smpx_contiguous2, q2, R, Cs, Cn, alpR, alpC, sig_ph0L, sig_ph0H)
