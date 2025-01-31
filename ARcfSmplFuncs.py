@@ -22,7 +22,7 @@ def ampAngRep(z, dt, sp="\n", f_order=False):
             if ang < 0:
                 ang = 2*_N.pi + ang
 
-            if (type(zv) == complex) or (type(zv) == complex64) or (type(zv) == complex128) or (type(zv) == complex):
+            if (type(zv) == complex):
                 cStr = "C"
                 if zv.imag == 0:
                     cStr = "R"
