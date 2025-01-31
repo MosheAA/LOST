@@ -29,12 +29,12 @@ def parseFNcnt(baseFN):
     p          = re.compile(".*(\d+),(\d+)-([\d,\+]+)(_\d+)*")
     m = p.match(FN)
 
-    #wins2use   = _N.array(list(m.group(3).split(",")), dtype=_N.int)
+    #wins2use   = _N.array(list(m.group(3).split(",")), dtype=int)
     winDescr   = m.group(3).split(",")
     wins2use   = []
     for descr in winDescr:
         if descr.find('+') > 0:
-            wins2use.append(_N.array(descr.split("+"), dtype=_N.int))
+            wins2use.append(_N.array(descr.split("+"), dtype=int))
         else:
             wins2use.append(int(descr))
     

@@ -141,8 +141,8 @@ def plotWFandSpks(N, spks, wfs, tMult=None, sTitle=None, sFilename=None, intv=No
     _plt.xticks(fontsize=20)
     if tMult != None:
         tcks = _plt.xticks()
-        ot   = _N.array(tcks[0], dtype=_N.int)
-        mt   = _N.array(tcks[0] * tMult, dtype=_N.int)
+        ot   = _N.array(tcks[0], dtype=int)
+        mt   = _N.array(tcks[0] * tMult, dtype=int)
         _plt.xticks(ot, mt)
     _plt.yticks([], fontsize=20)
     _plt.axhline(y=0, color="grey", lw=2, ls="--")

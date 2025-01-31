@@ -80,7 +80,7 @@ def stationary_from_Z_bckwd(smps, blksz=200):
 
 def shifted_arrays(inarray, pcs):
     N = inarray.shape[0]
-    out_array = _N.empty((pcs, N), dtype=_N.int)
+    out_array = _N.empty((pcs, N), dtype=int)
     blk = N // pcs
     for sh in range(pcs):
         for pc in range(pcs):

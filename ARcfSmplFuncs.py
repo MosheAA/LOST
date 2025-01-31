@@ -51,9 +51,9 @@ def ampAngRep(z, dt, sp="\n", f_order=False):
     if f_order == False:
         return prt[:-1]
     else:
-        rks   = _N.array(_ss.rankdata(fs, method="ordinal") - 1, dtype=_N.int).tolist()   #  rank each element.  A=[3, 0, 1]  rks=[3, 1, 2]
+        rks   = _N.array(_ss.rankdata(fs, method="ordinal") - 1, dtype=int).tolist()   #  rank each element.  A=[3, 0, 1]  rks=[3, 1, 2]
         vAmps = _N.array(amps)
-        #rks   = _N.array(_ss.rankdata(vAmps*-1, method="ordinal") - 1, dtype=_N.int).tolist()   #  rank each element.  A=[3, 0, 1]  rks=[3, 1, 2]
+        #rks   = _N.array(_ss.rankdata(vAmps*-1, method="ordinal") - 1, dtype=int).tolist()   #  rank each element.  A=[3, 0, 1]  rks=[3, 1, 2]
         indOrFs= [rks.index(x) for x in range(len(fs))]
 
         printIt = prtR

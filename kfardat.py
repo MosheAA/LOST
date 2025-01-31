@@ -33,8 +33,8 @@ class KFARDat:
         oo.TR      = args[0]
         oo.N       = args[1]
         oo.k       = args[2]   #  if only using as single
-        oo.Ns      = oo.N if tr1 else _N.ones(oo.TR, dtype=_N.int)*oo.N
-        oo.ks      = oo.k if tr1 else _N.ones(oo.TR, dtype=_N.int)*oo.k
+        oo.Ns      = oo.N if tr1 else _N.ones(oo.TR, dtype=int)*oo.N
+        oo.ks      = oo.k if tr1 else _N.ones(oo.TR, dtype=int)*oo.k
 
         oo.initKF(oo.TR, oo.N, oo.k, onetrial=tr1)
 

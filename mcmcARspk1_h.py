@@ -154,7 +154,7 @@ class mcmcARspk1(mAR.mcmcAR):
                 print "a trial requested to use will be removed %d" % utrl
 
         ######  oo.y are for trials that have at least 1 spike
-        oo.y     = _N.array(y[oo.useTrials], dtype=_N.int)
+        oo.y     = _N.array(y[oo.useTrials], dtype=int)
         oo.x     = _N.array(x[oo.useTrials])
         if bRealDat:
             oo.fx    = _N.array(fx[oo.useTrials])
@@ -221,7 +221,7 @@ class mcmcARspk1(mAR.mcmcAR):
         crats /= crats[-1]
 
         ####  generate spike before time=0.  PSTH estimation
-        oo.t0_is_t_since_1st_spk = _N.empty(oo.TR, dtype=_N.int)
+        oo.t0_is_t_since_1st_spk = _N.empty(oo.TR, dtype=int)
         rands = _N.random.rand(oo.TR)
         for tr in xrange(oo.TR):
             spkts = _N.where(oo.y[tr] == 1)[0]

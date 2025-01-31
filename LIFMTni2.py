@@ -111,14 +111,14 @@ def create(setname):
         bGivenLowQs = False
     if (psthTypsPc is None) or (nPSTHs == 1):
         bGivenPSTHbyTrial = False        
-        psthThisTrial = _N.zeros(TR, dtype=_N.int)
+        psthThisTrial = _N.zeros(TR, dtype=int)
         nknts = a.shape[0]
     else:
         crat = _N.zeros(len(psthTypsPc)+1)
         for ityp in xrange(len(psthTypsPc)):
             crat[ityp+1] = crat[ityp] + psthTypsPc[ityp]
         nknts = a.shape[1]
-        psthThisTrial = _N.empty(TR, dtype=_N.int)
+        psthThisTrial = _N.empty(TR, dtype=int)
         for tr in xrange(TR):
             rnd = _N.random.rand()
             typ = _N.where((rnd > crat[0:-1]) & (rnd < crat[1:]))[0][0]

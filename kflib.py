@@ -760,7 +760,7 @@ def findMode(dmp, setname, burn, NMC, startIt=None, NB=20, NeighB=1, dir=None):
     indsFs = _N.where((fs[startIt:, 0] >= loF) & (fs[startIt:, 0] <= hiF))
     indsAs = _N.where((amps[startIt:, 0] >= loA) & (amps[startIt:, 0] <= hiA))
 
-    asfsInds = _N.intersect1d(indsAs[0], indsFs[0]) + startIt
+    asfsInds = intersect1d(indsAs[0], indsFs[0]) + startIt
     q = _N.mean(smp_q2[0, startIt:])
 
 

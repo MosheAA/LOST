@@ -295,7 +295,7 @@ class mcmcNOARp:
         oo.allalfas     = _N.empty((oo.burn + oo.NMC, oo.k), dtype=_N.complex)
         oo.uts          = _N.empty((oo.TR, oo.burn + oo.NMC, oo.R, oo.N+2))
         oo.wts          = _N.empty((oo.TR, oo.burn + oo.NMC, oo.C, oo.N+3))
-        oo.ranks        = _N.empty((oo.burn + oo.NMC, oo.C), dtype=_N.int)
+        oo.ranks        = _N.empty((oo.burn + oo.NMC, oo.C), dtype=int)
         oo.pgs          = _N.empty((oo.TR, oo.burn + oo.NMC, oo.N+1))
         oo.fs           = _N.empty((oo.burn + oo.NMC, oo.C))
         oo.amps         = _N.empty((oo.burn + oo.NMC, oo.C))

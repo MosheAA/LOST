@@ -74,7 +74,7 @@ class mcmcARpBM2(mcmcARspk.mcmcARspk):
         oo.smp_ms    = _N.zeros((oo.burn + oo.NMC, oo.nStates))
 
         if oo.Z is None:   #  not set externally
-            oo.Z         = _N.zeros((oo.TR, oo.nStates), dtype=_N.int)
+            oo.Z         = _N.zeros((oo.TR, oo.nStates), dtype=int)
             if oo.lowStates is not None:
                 for tr in xrange(oo.TR):
                     oo.Z[tr, 0] = 0;                oo.Z[tr, 1] = 1
@@ -101,11 +101,11 @@ class mcmcARpBM2(mcmcARspk.mcmcARspk):
         elif (oo.varz is None) and (oo.fxdz is not None):
             if type(oo.fxdz) is list:
                oo.fxdz = _N.array(oo.fxdz)
-            oo.varz  = _N.array(disjointSubset(range(oo.TR), oo.fxdz), dtype=_N.int)
+            oo.varz  = _N.array(disjointSubset(range(oo.TR), oo.fxdz), dtype=int)
         elif (oo.varz is not None) and (oo.fxdz is None):
             if type(oo.varz) is list:
                 oo.varz = _N.array(oo.varz)
-            oo.fxdz  = _N.array(disjointSubset(range(oo.TR), oo.varz), dtype=_N.int)
+            oo.fxdz  = _N.array(disjointSubset(range(oo.TR), oo.varz), dtype=int)
 
     def dirichletAllocate(self):  ###########################  GIBBSSAMP
         oo          = self

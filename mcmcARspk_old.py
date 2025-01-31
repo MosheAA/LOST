@@ -156,8 +156,8 @@ class mcmcARspk(mAR.mcmcAR):
                 print("a trial requested to use will be removed %d" % utrl)
 
         ######  oo.y are for trials that have at least 1 spike
-        #y     = _N.array(y[oo.useTrials], dtype=_N.int)
-        y     = _N.array(y, dtype=_N.int)
+        #y     = _N.array(y[oo.useTrials], dtype=int)
+        y     = _N.array(y, dtype=int)
 
         if oo.downsamp:
             evry, dsdat = downsamplespkdat(y, 0.01, max_evry=5)
@@ -172,7 +172,7 @@ class mcmcARspk(mAR.mcmcAR):
 
         print(oo.useTrials)
         print(dsdat.shape)
-        oo.y     = _N.array(dsdat[oo.useTrials], dtype=_N.int)        
+        oo.y     = _N.array(dsdat[oo.useTrials], dtype=int)        
 
         prb_spk_in_bin = _N.sum(oo.y) / (oo.y.shape[0] * oo.y.shape[1])
         oo.u_u   = -_N.log(1/prb_spk_in_bin - 1)
@@ -313,7 +313,7 @@ class mcmcARspk(mAR.mcmcAR):
 
         ####  generate spike before time=0.  PSTH estimation
         if oo.t0_is_t_since_1st_spk is None:
-            oo.t0_is_t_since_1st_spk = _N.empty(oo.TR, dtype=_N.int)
+            oo.t0_is_t_since_1st_spk = _N.empty(oo.TR, dtype=int)
             rands = _N.random.rand(oo.TR)
             for tr in range(oo.TR):
                 spkts = _N.where(oo.y[tr] == 1)[0]
@@ -368,7 +368,7 @@ class mcmcARspk(mAR.mcmcAR):
             print(oo.F_alfa_rep)
         #oo.uts          = _N.empty((oo.TR, iters, oo.R, oo.N+2))
         #oo.wts          = _N.empty((oo.TR, iters, oo.C, oo.N+3))
-        oo.ranks        = _N.empty((iters, oo.C), dtype=_N.int)
+        oo.ranks        = _N.empty((iters, oo.C), dtype=int)
         oo.pgs          = _N.empty((oo.TR, iters, oo.N+1))
         oo.fs           = _N.empty((iters, oo.C))
         oo.amps         = _N.empty((iters, oo.C))
@@ -381,8 +381,8 @@ class mcmcARspk(mAR.mcmcAR):
         #oo._d = _kfardat.KFARGauObsDat(oo.TR, oo.N, oo.k)
         #oo._d.copyData(oo.y)
 
-        oo.Ns      = _N.ones(oo.TR, dtype=_N.int)*oo.N
-        oo.ks      = _N.ones(oo.TR, dtype=_N.int)*oo.k
+        oo.Ns      = _N.ones(oo.TR, dtype=int)*oo.N
+        oo.ks      = _N.ones(oo.TR, dtype=int)*oo.k
 
         oo.F     = _N.zeros((oo.k, oo.k))
         _N.fill_diagonal(oo.F[1:, 0:oo.k-1], 1)
@@ -660,7 +660,7 @@ class mcmcARspk(mAR.mcmcAR):
         indsFs = _N.where((oo.fs[startIt:, 0] >= loF) & (oo.fs[startIt:, 0] <= hiF))
         indsAs = _N.where((oo.amps[startIt:, 0] >= loA) & (oo.amps[startIt:, 0] <= hiA))
 
-        asfsInds = _N.intersect1d(indsAs[0], indsFs[0]) + startIt
+        asfsInds = intersect1d(indsAs[0], indsFs[0]) + startIt
         q = _N.mean(oo.smp_q2[0, startIt:])
 
 

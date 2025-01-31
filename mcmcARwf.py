@@ -126,7 +126,7 @@ class mcmcARp(mcmcARspk.mcmcARspk):
             print oo.F_alfa_rep
         #oo.uts          = _N.empty((oo.TR, iters, oo.R, oo.N+2))
         #oo.wts          = _N.empty((oo.TR, iters, oo.C, oo.N+3))
-        oo.ranks        = _N.empty((iters, oo.C), dtype=_N.int)
+        oo.ranks        = _N.empty((iters, oo.C), dtype=int)
         oo.pgs          = _N.empty((oo.TR, iters, oo.N+1))
         oo.fs           = _N.empty((iters, oo.C))
         oo.amps         = _N.empty((iters, oo.C))
@@ -312,8 +312,8 @@ class mcmcARp(mcmcARspk.mcmcARspk):
         #oo._d = _kfardat.KFARGauObsDat(oo.TR, oo.N, oo.k)
         #oo._d.copyData(oo.y)
 
-        oo.Ns      = _N.ones(oo.TR, dtype=_N.int)*oo.N
-        oo.ks      = _N.ones(oo.TR, dtype=_N.int)*oo.k
+        oo.Ns      = _N.ones(oo.TR, dtype=int)*oo.N
+        oo.ks      = _N.ones(oo.TR, dtype=int)*oo.k
 
         oo.F     = _N.zeros((oo.k, oo.k))
         _N.fill_diagonal(oo.F[1:, 0:oo.k-1], 1)

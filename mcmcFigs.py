@@ -229,11 +229,11 @@ def plotWFandSpks(mARp, zts0, sFilename="latnt,GrdTr,Spks", tMult=1, intv=None, 
         _plt.yticks([])
 
         tcks = _plt.xticks()
-        ot   = _N.array(tcks[0], dtype=_N.int)
-        mt   = _N.array(tcks[0] * tMult, dtype=_N.int)
+        ot   = _N.array(tcks[0], dtype=int)
+        mt   = _N.array(tcks[0] * tMult, dtype=int)
         _plt.xticks(ot, mt, fontsize=24)
 
-        #_plt.xticks(_N.linspace(0, mARp.N+1, 7, dtype=_N.int), _N.linspace(0, mARp.N+1, 7, dtype=_N.int)*tMult, fontsize=20)
+        #_plt.xticks(_N.linspace(0, mARp.N+1, 7, dtype=int), _N.linspace(0, mARp.N+1, 7, dtype=int)*tMult, fontsize=20)
         _plt.xlim(0, (mARp.N+1)+1)
         _plt.xlabel("millisecond", fontsize=26)
         #_plt.axhline(y=0, color="grey", lw=2, ls="--")

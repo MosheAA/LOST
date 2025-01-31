@@ -174,7 +174,7 @@ def figCircularDistribution(phs, cSpkPhs, sSpkPhs, trials, setname=None, surroga
         if srgt == 0:
             trls = inorderTrials
         else:
-            trls = inorderTrials[_N.sort(_N.asarray(_N.random.rand(ltr)*ltr, _N.int))]
+            trls = inorderTrials[_N.sort(_N.asarray(_N.random.rand(ltr)*ltr, int))]
 
         cS = []
         sS = []

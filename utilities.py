@@ -170,7 +170,7 @@ def g_randomGrpsOfM(g, M):
 
 #  random array of +/- 1    
 def ranPlusMinus(N):
-    a = _N.ones(N, dtype=_N.int)
+    a = _N.ones(N, dtype=int)
     for n in range(N):
         if _N.random.rand() > 0.5:
             a[n] = -1
@@ -485,7 +485,7 @@ def loadtxt2Darr(fn, dtype=_N.float32):
     """
     #  returns numy array
     #  if size is 1, shape is len 0
-    arr = _N.loadtxt(fn, dtype=_N.int16)    
+    arr = _N.loadtxt(fn, dtype=int16)    
     
     if arr.size == 1:
         arr = arr.reshape(1, 1)

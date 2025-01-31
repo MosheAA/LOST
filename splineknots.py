@@ -378,7 +378,7 @@ def reasonableHistory2(lmd, maxH=1.2, strT=1, cutoff=100, dcyTS=60):
 
         nIDP   = int((ihiest+1)*strT)   #  number of interpolated data points
         xI     = _N.linspace(0, ihiest, nIDP)
-        cI     = _N.interp(xI, x, cmpLmd[0:ihiest+1])
+        cI     = interp(xI, x, cmpLmd[0:ihiest+1])
 
         cmpLmd[0:nIDP] = cI
         ihiest = int(ihiest*strT)

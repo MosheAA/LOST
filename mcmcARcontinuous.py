@@ -111,7 +111,7 @@ class mcmcARcontinuous:
         minSpc = AMP0*0.05
         
         corrs = _N.empty(oo.C)
-        closest_GTcmpts = _N.ones(oo.C, dtype=_N.int) * -1   # -1 if AR comp not THE closest one to one of the GTcomponents given
+        closest_GTcmpts = _N.ones(oo.C, dtype=int) * -1   # -1 if AR comp not THE closest one to one of the GTcomponents given
         for igt in range(gtcompts.shape[1]):
             for icmp in range(oo.C):            
                 corrs[icmp], pv = _ss.pearsonr(gtcompts[oo.k+t0:t1+oo.k, igt], mzts[t0:t1, icmp])

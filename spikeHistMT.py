@@ -13,7 +13,7 @@ beta[:] = [-3, -2.5, -2.1, -1.8, -1.5, -1.2, -0.9, -0.3, 0.1, 0.3]
 beta[:] *= 2
 
 N       = 60000
-st      = _N.zeros(N, dtype=_N.int)
+st      = _N.zeros(N, dtype=int)
 rds     = _N.random.rand(LHbin*(nLHBins+1))
 st[_N.where(rds < 0.1)[0]] = 1
 

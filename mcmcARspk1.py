@@ -125,7 +125,7 @@ class mcmcARspk1(mAR.mcmcAR):
                 print "a trial requested to use will be removed %d" % utrl
 
         ######  oo.y are for trials that have at least 1 spike
-        oo.y     = _N.array(y[oo.useTrials], dtype=_N.int)
+        oo.y     = _N.array(y[oo.useTrials], dtype=int)
         oo.x     = _N.array(x[oo.useTrials])
         if bRealDat:
             oo.fx    = _N.array(fx[oo.useTrials])

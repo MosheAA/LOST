@@ -76,12 +76,12 @@ def zoom(fr, spkts, m, nohist=False, loP=0.0001):
     Lmspkts = []
     if not nohist:
         for tr in xrange(TR):
-            Lmspkts.append(_N.empty(len(spkts[tr]), dtype=_N.int))
+            Lmspkts.append(_N.empty(len(spkts[tr]), dtype=int))
 
             lt  = -1
             for i in xrange(len(spkts[tr])):
                 sti = spkts[tr][i]
-                frm[tr, (lt+1)*m:(sti+1)*m] = _N.interp(x[(lt+1)*m:(sti+1)*m],
+                frm[tr, (lt+1)*m:(sti+1)*m] = interp(x[(lt+1)*m:(sti+1)*m],
                                                         x[(lt+1)*m:(sti+1)*m:m],
                                                         fr[tr, lt+1:sti+1])
                 #  somewhere in [spkts[i]*m:(spkts[i]+1)*m]
@@ -90,8 +90,8 @@ def zoom(fr, spkts, m, nohist=False, loP=0.0001):
                 lt = sti
     else:
         for tr in xrange(TR):
-            Lmspkts.append(_N.empty(len(spkts[tr]), dtype=_N.int))
-            frm[tr] = _N.interp(x, x[::m], fr[tr])
+            Lmspkts.append(_N.empty(len(spkts[tr]), dtype=int))
+            frm[tr] = interp(x, x[::m], fr[tr])
             for i in xrange(len(spkts[tr])):
                 Lmspkts[tr][i] = spkts[tr][i]*m
         
