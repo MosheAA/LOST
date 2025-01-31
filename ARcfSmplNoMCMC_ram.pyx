@@ -118,8 +118,8 @@ def init(int N, int k, int TR, int R, int Cs, int Cn, aro=_cd.__NF__):
     cdef double[::1] vmj = mj
     p_mj = &vmj[0]
 
-    filtrootsC = _N.zeros(2*C-2+R, dtype=_N.complex) + 0.1 + 0.1j
-    filtrootsR = _N.zeros(2*C+R-1, dtype=_N.complex)
+    filtrootsC = _N.zeros(2*C-2+R, dtype=complex) + 0.1 + 0.1j
+    filtrootsR = _N.zeros(2*C+R-1, dtype=complex)
     
     cdef complex[::1] vfiltrootsC = filtrootsC
     p_vfiltrootsC = &vfiltrootsC[0]
