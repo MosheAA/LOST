@@ -188,8 +188,8 @@ class mcmcARp(mcmcARspk.mcmcARspk):
         oo.allocateSmp(runTO+1, Bsmpx=oo.doBsmpx)
         if cython_arc:
             _arcfs.init(ooN+1-oo.ignr, oo.k, oo.TR, oo.R, oo.Cs, oo.Cn, aro=_cd.__NF__)
-            alpR   = _N.array(oo.F_alfa_rep[0:oo.R], dtype=_N.complex)
-            alpC   = _N.array(oo.F_alfa_rep[oo.R:], dtype=_N.complex)
+            alpR   = _N.array(oo.F_alfa_rep[0:oo.R], dtype=complex)
+            alpC   = _N.array(oo.F_alfa_rep[oo.R:], dtype=complex)
         else:
             alpR   = oo.F_alfa_rep[0:oo.R]
             alpC   = oo.F_alfa_rep[oo.R:]
