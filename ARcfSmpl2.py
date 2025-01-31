@@ -4,7 +4,7 @@ import kdist as _kd
 import ARlib as _arl
 import warnings
 #import logerfc as _lfc
-import commdefs as _cd
+import LOST.commdefs as _cd
 import numpy as _N
 #from ARcfSmplFuncs import ampAngRep, randomF, dcmpcff, betterProposal
 from ARcfSmplFuncs import ampAngRep, dcmpcff, betterProposal
