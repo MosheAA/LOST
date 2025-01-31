@@ -2,7 +2,7 @@ import numpy as _N
 import LOST.commdefs as _cd
 #from ARcfSmpl import ARcfSmpl
 
-from filter import gauKer, lpFilt, bpFilt
+from LOST.filter import gauKer, lpFilt, bpFilt
 from LOSTdirs import resFN
 import re as _re
 import os
