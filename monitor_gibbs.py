@@ -1,5 +1,5 @@
 import numpy as _N
-from filter import gauKer#, contiguous_pack2
+from LOST.filter import gauKer#, contiguous_pack2
 import matplotlib.pyplot as _plt
 import scipy.special as _ssp
 import scipy.stats as _ss
