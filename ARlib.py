@@ -79,7 +79,7 @@ def generateValidAR(k):
 #    amps = 0.6*_N.random.rand(nImg/2 + nReal) + 0.4
     amps = _N.random.rand(nImg/2 + nReal)
 
-    dtyp = _N.float
+    dtyp = float
     if nImg > 0:
         dtyp = complex
         phzs = _N.random.rand(nImg/2) * 2 * _N.pi
@@ -280,7 +280,7 @@ def MetrSampF(N, k, smpx, q2, pr_uF, pr_cvF, trCv, burn=100, Fini=None):
         #         aO = aC
         # n += 1
 
-        if bBdd and (evals.dtype==_N.complex):   # quick hack
+        if bBdd and (evals.dtype==complex):   # quick hack
             bLoFreq = False
             for i in range(k):
                 azm = azim(evals[i].real, evals[i].imag)
