@@ -4,7 +4,7 @@ import patsy
 import ka_tools.utilities as _U
 import matplotlib.pyplot as _plt
 from LOST.utildirs import setFN
-from filter import gauKer
+from LOST.filter import gauKer
 
 v = 5
 c = 5
