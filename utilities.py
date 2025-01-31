@@ -478,14 +478,14 @@ def discreteAndLinzNormWF(waveDat, binsz=3, divs=8, dynrange=3):
 
     return disc
 
-def loadtxt2Darr(fn, dtype=_N.float32):
+def loadtxt2Darr(fn, dtype=float):
     """
     _N.loadtxt returns all sorts of weird shapes of array as output.
     I'm usually expecting a 2D array
     """
     #  returns numy array
     #  if size is 1, shape is len 0
-    arr = _N.loadtxt(fn, dtype=int16)    
+    arr = _N.loadtxt(fn, dtype=int)    
     
     if arr.size == 1:
         arr = arr.reshape(1, 1)
