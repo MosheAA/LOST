@@ -70,7 +70,7 @@ def create(setname):
         updn = _N.zeros((TR, N+buff))
 
     if bGenOscUsingAR:
-        alfa     = _N.empty((TR, nRhythms, 2), dtype=_N.complex)
+        alfa     = _N.empty((TR, nRhythms, 2), dtype=complex)
         if thsVAR is None:
             thsVAR   = _N.zeros((TR, nRhythms))
 
