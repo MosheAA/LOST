@@ -81,7 +81,7 @@ def generateValidAR(k):
 
     dtyp = _N.float
     if nImg > 0:
-        dtyp = _N.complex
+        dtyp = complex
         phzs = _N.random.rand(nImg/2) * 2 * _N.pi
 
     rs = _N.empty(k,       dtype=dtyp)
