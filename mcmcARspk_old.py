@@ -205,7 +205,7 @@ class mcmcARspk(mAR.mcmcAR):
         oo.N  = oo.t1 - 1 - oo.t0
 
         oo.smpx        = _N.zeros((oo.TR, (oo.N + 1) + 2, oo.k))   #  start at 0 + u
-        oo.ws          = _N.empty((oo.TR, oo.N+1), dtype=_N.float)
+        oo.ws          = _N.empty((oo.TR, oo.N+1), dtype=float)
         oo.lrn   = _N.empty((oo.TR, oo.N+1))
 
         if oo.us is None:
@@ -357,7 +357,7 @@ class mcmcARspk(mAR.mcmcAR):
         oo.smp_x00      = _N.empty((oo.TR, iters, oo.k))
         #  store samples of
 
-        oo.allalfas     = _N.empty((iters, oo.k), dtype=_N.complex)
+        oo.allalfas     = _N.empty((iters, oo.k), dtype=complex)
         if oo.pkldalfas is not None:
             oo.allalfas[0]  = oo.pkldalfas
             for r in range(oo.R):
@@ -420,7 +420,7 @@ class mcmcARspk(mAR.mcmcAR):
         oo.AR2lims      = 2*_N.cos(radians)
 
         oo.smpx        = _N.zeros((oo.TR, (oo.N + 1) + 2, oo.k))   #  start at 0 + u
-        oo.ws          = _N.empty((oo.TR, oo.N+1), dtype=_N.float)
+        oo.ws          = _N.empty((oo.TR, oo.N+1), dtype=float)
 
         if oo.F_alfa_rep is None:
             oo.F_alfa_rep  = initF(oo.R, oo.Cs, oo.Cn, ifs=oo.ifs).tolist()   #  init F_alfa_rep
@@ -562,7 +562,7 @@ class mcmcARspk(mAR.mcmcAR):
                     cf2 = 2*(c[2*z].real*gam.real + c[2*z].imag*gam.imag)
                     oo.zts[tr, it, 0:ddN+2, z] = cf1*oo.wts[tr, it, z, 1:ddN+3] - cf2*oo.wts[tr, it, z, 0:ddN+2]
 
-        oo.zts0 = _N.array(oo.zts[:, :, 1:, 0], dtype=_N.float16)
+        oo.zts0 = _N.array(oo.zts[:, :, 1:, 0], dtype=float)
 
     def readdump(self):
         oo    = self
