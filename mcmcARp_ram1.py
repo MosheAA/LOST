@@ -550,14 +550,8 @@ class mcmcARp(mcmcARspk.mcmcARspk):
                                     print(f"Warning: amp shape mismatch at iteration {it}. Reshaping.")
                                     amp = np.resize(amp, (expected_shape,))  # Resize safely
                                     f = np.resize(f, (expected_shape,))
-                            
                             oo.amps[it, :] = amp
                             oo.fs[it, :] = f
-                          if amp.size != 0:
-                              oo.amps[it, :]  = amp
-                              oo.fs[it, :]    = f
-                          else:
-                            print(f"Warning: amp is empty at iteration {it}. Skipping assignment.") 
                     ttt9 = _tm.time()
                     oo.F0          = (-1*_Npp.polyfromroots(oo.F_alfa_rep)[::-1].real)[1:]
                     for tr in range(oo.TR):
