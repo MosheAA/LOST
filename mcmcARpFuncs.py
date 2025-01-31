@@ -3,7 +3,7 @@ import LOST.commdefs as _cd
 #from ARcfSmpl import ARcfSmpl
 
 from LOST.filter import gauKer, lpFilt, bpFilt
-from LOSTdirs import resFN
+from LOST.LOSTdirs import resFN
 import re as _re
 import os
 
