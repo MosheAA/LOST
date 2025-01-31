@@ -1,7 +1,7 @@
 from LOSTdirs import resFN
 import scipy.signal as _ssig
 import re as _re
-from filter import lpFilt, bpFilt, base_q4atan, gauKer
+from LOST.filter import lpFilt, bpFilt, base_q4atan, gauKer
 import numpy as _N
 import matplotlib.pyplot as _plt
 import random as _ran
