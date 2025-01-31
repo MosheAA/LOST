@@ -176,7 +176,7 @@ class mcmcARspk1(mAR.mcmcAR):
         oo.N     = N
 
         oo.smpx        = _N.zeros((oo.TR, oo.N + 1))   #  start at 0 + u
-        oo.ws          = _N.empty((oo.TR, oo.N+1), dtype=_N.float)
+        oo.ws          = _N.empty((oo.TR, oo.N+1), dtype=float)
         oo.lrn   = _N.empty((oo.TR, oo.N+1))
 
         oo.us    = _N.zeros(oo.TR)
@@ -262,7 +262,7 @@ class mcmcARspk1(mAR.mcmcAR):
         #  baseFN_inter   baseFN_comps   baseFN_comps
 
         oo.smpx        = _N.zeros((oo.TR, oo.N + 1))   #  start at 0 + u
-        oo.ws          = _N.empty((oo.TR, oo._d.N+1), dtype=_N.float)
+        oo.ws          = _N.empty((oo.TR, oo._d.N+1), dtype=float)
 
         if oo.q20 is None:
             oo.q20         = 0.00077
