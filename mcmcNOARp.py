@@ -12,7 +12,7 @@ from kflib import createDataAR
 import numpy as _N
 import patsy
 import re as _re
-from filter import bpFilt, lpFilt, gauKer
+from LOST.filter import bpFilt, lpFilt, gauKer
 
 import scipy.sparse.linalg as _ssl
 import scipy.stats as _ss
@@ -292,10 +292,10 @@ class mcmcNOARp:
         oo.smp_q2       = _N.zeros((oo.TR, oo.burn + oo.NMC))
         oo.smp_x00      = _N.empty((oo.TR, oo.burn + oo.NMC-1, oo.k))
         #  store samples of
-        oo.allalfas     = _N.empty((oo.burn + oo.NMC, oo.k), dtype=_N.complex)
+        oo.allalfas     = _N.empty((oo.burn + oo.NMC, oo.k), dtype=complex)
         oo.uts          = _N.empty((oo.TR, oo.burn + oo.NMC, oo.R, oo.N+2))
         oo.wts          = _N.empty((oo.TR, oo.burn + oo.NMC, oo.C, oo.N+3))
-        oo.ranks        = _N.empty((oo.burn + oo.NMC, oo.C), dtype=_N.int)
+        oo.ranks        = _N.empty((oo.burn + oo.NMC, oo.C), dtype=int)
         oo.pgs          = _N.empty((oo.TR, oo.burn + oo.NMC, oo.N+1))
         oo.fs           = _N.empty((oo.burn + oo.NMC, oo.C))
         oo.amps         = _N.empty((oo.burn + oo.NMC, oo.C))
@@ -307,7 +307,7 @@ class mcmcNOARp:
 
         if (oo.rs < 0):
             oo.smpx        = _N.zeros((oo.TR, (oo.N + 1) + 2, oo.k))   #  start at 0 + u
-            oo.ws          = _N.empty((oo.TR, oo._d.N+1), dtype=_N.float)
+            oo.ws          = _N.empty((oo.TR, oo._d.N+1), dtype=float)
 
             oo.F_alfa_rep  = initF(oo.R, oo.Cs, oo.Cn, ifs=oo.ifs).tolist()   #  init F_alfa_rep
 
