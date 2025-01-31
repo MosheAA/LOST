@@ -63,8 +63,8 @@ def ARcfSmpl(N, k, AR2lims, smpxU, smpxW, q2, R, Cs, Cn, alpR, alpC, TR, accepts
     Mj     = _N.empty(TR)
     Mji    = _N.empty(TR)
     mj     = _N.empty(TR)
-    filtrootsC = _N.empty(2*C-2+R, dtype=_N.complex)
-    filtrootsR = _N.empty(2*C+R-1, dtype=_N.complex)
+    filtrootsC = _N.empty(2*C-2+R, dtype=complex)
+    filtrootsR = _N.empty(2*C+R-1, dtype=complex)
 
     #  r = sqrt(-1*phi_1)   0.25 = -1*phi_1   -->  phi_1 >= -0.25   gives r >= 0.5 for signal components   
     if aro == _cd.__SF__:    #  signal first
