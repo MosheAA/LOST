@@ -160,7 +160,7 @@ class mcmcARspk(mAR.mcmcAR):
             oo.outSmplFN = "%(bf)s_%(tr0)d_%(tr1)d" % {"bf" : oo.outSmplFN, "tr0" : int(_N.min(oo.useTrials)), "tr1" : int(_N.max(oo.useTrials))}
         ######  oo.y are for trials that have at least 1 spike
         #y     = _N.array(y[oo.useTrials], dtype=_N.int)
-        y     = _N.array(y, dtype=_N.int)
+        y     = _N.array(y, dtype=int)
 
         if oo.downsamp:
             evry, dsdat = downsamplespkdat(y, 0.005, max_evry=3)
@@ -181,7 +181,7 @@ class mcmcARspk(mAR.mcmcAR):
 
         print(oo.useTrials)
         print(dsdat.shape)
-        oo.y     = _N.array(dsdat[oo.useTrials], dtype=_N.int)        
+        oo.y     = _N.array(dsdat[oo.useTrials], dtype=int)        
 
         prb_spk_in_bin = _N.sum(oo.y) / (oo.y.shape[0] * oo.y.shape[1])
         oo.u_u   = -_N.log(1/prb_spk_in_bin - 1)
@@ -216,7 +216,7 @@ class mcmcARspk(mAR.mcmcAR):
 
         #oo.Bsmpx        = _N.zeros((iters//oo.BsmpxSkp, oo.TR, (oo.N+1) + 2))
         oo.smpx        = _N.zeros((oo.TR, (oo.N + 1) + 2, oo.k))   #  start at 0 + u
-        oo.ws          = _N.empty((oo.TR, oo.N+1), dtype=_N.float)
+        oo.ws          = _N.empty((oo.TR, oo.N+1), dtype=float)
         oo.lrn   = _N.empty((oo.TR, oo.N+1))
 
         if oo.us is None:
@@ -260,7 +260,7 @@ class mcmcARspk(mAR.mcmcAR):
 
         ####  generate spike before time=0.  PSTH estimation
         if oo.t0_is_t_since_1st_spk is None:
-            oo.t0_is_t_since_1st_spk = _N.empty(oo.TR, dtype=_N.int)
+            oo.t0_is_t_since_1st_spk = _N.empty(oo.TR, dtype=int)
             rands = _N.random.rand(oo.TR)
             for tr in range(oo.TR):
                 spkts = _N.where(oo.y[tr] == 1)[0]
@@ -333,7 +333,7 @@ class mcmcARspk(mAR.mcmcAR):
         oo.smp_q2       = _N.zeros((iters, oo.TR))
         #  store samples of
 
-        oo.allalfas     = _N.zeros((iters, oo.k), dtype=_N.complex)
+        oo.allalfas     = _N.zeros((iters, oo.k), dtype=complex)
         if oo.pkldalfas is not None:
             oo.allalfas[0]  = oo.pkldalfas
             for r in range(oo.R):
@@ -344,7 +344,7 @@ class mcmcARspk(mAR.mcmcAR):
             print(oo.F_alfa_rep)
         oo.uts          = _N.empty((iters//oo.BsmpxSkp, oo.TR, oo.R, oo.N+1+1, 1))
         oo.wts          = _N.empty((iters//oo.BsmpxSkp, oo.TR, oo.C, oo.N+2+1, 1))
-        oo.ranks        = _N.empty((iters, oo.C), dtype=_N.int)
+        oo.ranks        = _N.empty((iters, oo.C), dtype=int)
         oo.fs           = _N.empty((iters, oo.C))
         oo.amps         = _N.empty((iters, oo.C))
 
@@ -356,8 +356,8 @@ class mcmcARspk(mAR.mcmcAR):
         #oo._d = _kfardat.KFARGauObsDat(oo.TR, oo.N, oo.k)
         #oo._d.copyData(oo.y)
 
-        oo.Ns      = _N.ones(oo.TR, dtype=_N.int)*oo.N
-        oo.ks      = _N.ones(oo.TR, dtype=_N.int)*oo.k
+        oo.Ns      = _N.ones(oo.TR, dtype=int)*oo.N
+        oo.ks      = _N.ones(oo.TR, dtype=int)*oo.k
 
         oo.F     = _N.zeros((oo.k, oo.k))
         _N.fill_diagonal(oo.F[1:, 0:oo.k-1], 1)
@@ -397,7 +397,7 @@ class mcmcARspk(mAR.mcmcAR):
         oo.AR2lims      = 2*_N.cos(radians)
 
         oo.smpx        = _N.zeros((oo.TR, (oo.N + 1) + 2, oo.k))   #  start at 0 + u
-        oo.ws          = _N.empty((oo.TR, oo.N+1), dtype=_N.float)
+        oo.ws          = _N.empty((oo.TR, oo.N+1), dtype=float)
 
         #############   ADDED THIS FOR DEBUG
         #oo.F_alfa_rep = _N.array([-0.4       +0.j,          0.96999828+0.00182841j,  0.96999828-0.00182841j, 0.51000064+0.02405102j,  0.51000064-0.02405102j,  0.64524011+0.04059507j, 0.64524011-0.04059507j]).tolist()
@@ -634,8 +634,8 @@ class mcmcARspk(mAR.mcmcAR):
         pcklme["C"]    = oo.C
         pcklme["k"]    = oo.k
         pcklme["BsmpxSkp"]    = oo.BsmpxSkp
-        pcklme["rts"]    = _N.array(oo.rts, dtype=_N.float16)  #  resolution about 1e-6.  So as long as signal amplitude about 0.1, this is not a problem
-        pcklme["zts"]    = _N.array(oo.zts, dtype=_N.float16)
+        pcklme["rts"]    = _N.array(oo.rts, dtype=float)  #  resolution about 1e-6.  So as long as signal amplitude about 0.1, this is not a problem
+        pcklme["zts"]    = _N.array(oo.zts, dtype=float)
         pcklme["toiter"]      = toiter
         pcklme["q2"]   = oo.smp_q2[0:toiter:oo.BsmpxSkp]
         pcklme["amps"] = oo.amps[0:toiter:oo.BsmpxSkp]
@@ -652,7 +652,7 @@ class mcmcARspk(mAR.mcmcAR):
             pcklme["Hbf"]    = oo.Hbf
             pcklme["h_coeffs"]    = oo.smp_hS[0:toiter:oo.BsmpxSkp]
         if oo.doBsmpx:
-            pcklme["Bsmpx"]    = _N.array(oo.Bsmpx[0:toiter//oo.BsmpxSkp], dtype=_N.float16)
+            pcklme["Bsmpx"]    = _N.array(oo.Bsmpx[0:toiter//oo.BsmpxSkp], dtype=float)
 
         #cifs = _N.empty((oo.TR, oo.N
         #for it 
