@@ -11,7 +11,7 @@ def ampAngRep(z, dt, sp="\n", f_order=False):
     fs  = []
     amps= []
     
-    if (type(z) == list) or (type(z) == _N.ndarray):
+    if (type(z) == list) or (type(z) == ndarray):
         L = len(z)
 
         for l in range(L):
@@ -22,7 +22,7 @@ def ampAngRep(z, dt, sp="\n", f_order=False):
             if ang < 0:
                 ang = 2*_N.pi + ang
 
-            if (type(zv) == _N.complex) or (type(zv) == _N.complex64) or (type(zv) == _N.complex128) or (type(zv) == complex):
+            if (type(zv) == complex) or (type(zv) == complex64) or (type(zv) == complex128) or (type(zv) == complex):
                 cStr = "C"
                 if zv.imag == 0:
                     cStr = "R"
@@ -99,7 +99,7 @@ def initF(nR, nCS, nCN, ifs=None, ir=0.97):
     #if nCPr == 0:
     #    iRs = _N.empty(nR + 2*nCPr, dtype=_N.float64)    # inverse roots
     #else:
-    iRs = _N.empty(nR + 2*nCPr, dtype=_N.complex)    # inverse roots
+    iRs = _N.empty(nR + 2*nCPr, dtype=complex)    # inverse roots
 
     #iRs[0:nR] = -0.6 - 0.4*_N.random.rand(nR)
     if nCPr == 0:
@@ -139,9 +139,9 @@ def initFL(nR, nCS, nCN, ifs=None):
     nCPr = nCS + nCN
 
     if nCPr == 0:
-        iRs = _N.empty(nR + 2*nCPr, dtype=_N.float64)    # inverse roots
+        iRs = _N.empty(nR + 2*nCPr, dtype=float)    # inverse roots
     else:
-        iRs = _N.empty(nR + 2*nCPr, dtype=_N.complex)    # inverse roots
+        iRs = _N.empty(nR + 2*nCPr, dtype=complex)    # inverse roots
 
     #iRs[0:nR] = -0.6 - 0.4*_N.random.rand(nR)
     #iRs[0:nR] = 0.1*_N.random.rand(nR)
@@ -171,9 +171,9 @@ def FfromLims(nR, Cs, Cn, AR2lims):
     #  random AR coeff set.  nR real roots and nCPr cmplx pairs
     nCPr = Cs + Cn
     if nCPr == 0:
-        iRs = _N.empty(nR + 2*nCPr, dtype=_N.float64)    # inverse roots
+        iRs = _N.empty(nR + 2*nCPr, dtype=float)    # inverse roots
     else:
-        iRs = _N.empty(nR + 2*nCPr, dtype=_N.complex)    # inverse roots
+        iRs = _N.empty(nR + 2*nCPr, dtype=complex)    # inverse roots
 
     iRs[0:nR] = -_N.random.rand(nR)
     #kk = 0.002
@@ -198,14 +198,14 @@ def dcmpcff(alfa):
     R   = p
     C   = 0
 
-    dtyp    = _N.float64
-    if alfa.dtype == _N.complex128:
-        dtyp = _N.complex128
+    dtyp    = float
+    if alfa.dtype == complex:
+        dtyp = complex
     A       = _N.zeros((p, p), dtype=dtyp)
     AA      = _N.zeros((p, p), dtype=dtyp)
     D       = _N.ones((p, 1),  dtype=dtyp)
 
-    if dtyp == _N.complex128:
+    if dtyp == complex:
         R    = 0
         i    = p - 1
         while i > -1:
@@ -216,7 +216,7 @@ def dcmpcff(alfa):
                 R += 1
                 i -= 1
 
-    bbc = _N.empty(p, dtype=_N.complex128)
+    bbc = _N.empty(p, dtype=complex)
     for m in range(p):
         AA[m, m] = 1
         for j in range(p):
@@ -231,7 +231,7 @@ def dcmpcff(alfa):
         b      = _N.empty(R)
         b[:]   = bbc[0:R].real
     if C > 0:
-        c   = _N.empty(2*C, dtype=_N.complex128)
+        c   = _N.empty(2*C, dtype=complex)
         c[:]   = bbc[R:R+2*C]
 
     return b, c
